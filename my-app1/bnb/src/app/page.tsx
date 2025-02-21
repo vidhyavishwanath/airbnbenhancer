@@ -24,19 +24,21 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Listings Grid */}
+      {/* Listings Scrollable Section */}
       <h2 className="text-3xl font-bold my-5">Featured Listings</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {listings.map((listing) => (
-          <div key={listing.id} className="bg-white p-4 rounded-lg shadow-md">
-            <Image src={listing.image} alt={listing.title} width={300} height={200} className="rounded-lg w-full h-48 object-cover" />
-            <h3 className="text-lg font-semibold mt-2">{listing.title}</h3>
-            <p className="text-gray-500">{listing.distance}</p>
-            <p className="text-gray-500">{listing.date}</p>
-            <p className="text-gray-900 font-bold">{listing.price}</p>
-            <p className="text-yellow-500">⭐ {listing.rating}</p>
-          </div>
-        ))}
+      <div className="relative w-full">
+        <div className="flex space-x-6 overflow-x-auto scrollbar-hide p-4">
+          {listings.map((listing) => (
+            <div key={listing.id} className="min-w-[300px] bg-white p-4 rounded-lg shadow-md">
+              <Image src={listing.image} alt={listing.title} width={300} height={200} className="rounded-lg w-full h-48 object-cover" />
+              <h3 className="text-lg font-semibold mt-2">{listing.title}</h3>
+              <p className="text-gray-500">{listing.distance}</p>
+              <p className="text-gray-500">{listing.date}</p>
+              <p className="text-gray-900 font-bold">{listing.price}</p>
+              <p className="text-yellow-500">⭐ {listing.rating}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
